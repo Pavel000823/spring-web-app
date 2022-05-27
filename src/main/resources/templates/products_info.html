@@ -17,7 +17,6 @@
             <td>id</td>
             <td>Наименование</td>
             <td>Цена</td>
-            <td></td>
         </tr>
         </thead>
         <tbody>
@@ -25,6 +24,13 @@
             <td th:text="${s.id}"></td>
             <td th:text="${s.title}"></td>
             <td th:text="${s.cost}"></td>
+            <td>
+            </td>
+            <td><a th:href="@{'/products/updateCost?id='+${s.id}+'&cost='+${s.cost+1}}" class="btn btn-secondary">Увеличить</a>
+            </td>
+            </td>
+            <td><a th:href="@{'/products/updateCost?id='+${s.id}+'&cost='+${s.cost-1}}" class="btn btn-secondary">Уменьшить</a>
+            </td>
         </tr>
         </tbody>
     </table>

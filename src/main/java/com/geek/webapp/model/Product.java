@@ -4,7 +4,7 @@ public class Product {
 
     private final String id;
     private final String title;
-    private final double cost;
+    private double cost;
 
     public Product(String id, String title, double cost) {
         this.id = id;
@@ -22,5 +22,9 @@ public class Product {
 
     public double getCost() {
         return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
     }
 }
