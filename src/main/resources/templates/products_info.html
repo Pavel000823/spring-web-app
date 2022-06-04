@@ -26,10 +26,11 @@
             <td th:text="${s.cost}"></td>
             <td>
             </td>
-            <td><a th:href="@{'/products/updateCost?id='+${s.id}+'&cost='+${s.cost+1}}" class="btn btn-secondary">Увеличить</a>
+            <td><a th:href="@{'/products/updateCost?id='+${s.id}+'&operation=plus'}"
+                   class="btn btn-secondary">Увеличить</a>
             </td>
             </td>
-            <td><a th:href="@{'/products/updateCost?id='+${s.id}+'&cost='+${s.cost-1}}" class="btn btn-secondary">Уменьшить</a>
+            <td><a th:href="@{'/products/updateCost?id='+${s.id}+'&operation=minus'}" class="btn btn-secondary">Уменьшить</a>
             </td>
         </tr>
         </tbody>

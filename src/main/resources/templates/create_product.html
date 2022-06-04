@@ -11,13 +11,7 @@
 </head>
 <body>
 <div class="container">
-    <form method="post" th:action="@{'/create'}">
-        <div class="mb-3">
-            <label for="productId" class="col-sm-2 col-form-label">Id</label>
-            <div class="mb-3">
-                <input type="text" class="form-control" id="productId" name="id">
-            </div>
-        </div>
+    <form method="post" th:action="@{'/products/create'}">
         <div class="mb-3">
             <label for="productTitle" class="col-sm-2 col-form-label">Наименование</label>
             <div class="mb-3">

@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductsController {
 
-    ProductsService productsService;
+    private final ProductsService productsService;
 
     ProductsController(ProductsService productsService) {
         this.productsService = productsService;
@@ -20,7 +20,7 @@ public class ProductsController {
 
     @GetMapping(value = "/show_all_products")
     public String showProductsPage(Model model) {
-        model.addAttribute("products", productsService.getAll());
+        model.addAttribute("products", productsService.findAll());
         return "products_info";
     }
 
@@ -31,14 +31,14 @@ public class ProductsController {
 
 
     @PostMapping(value = "/create")
-    public String saveProduct(@RequestParam String id, @RequestParam String title, @RequestParam double cost) {
-        productsService.save(new Product(id, title, cost));
+    public String saveProduct(@RequestParam String title, @RequestParam double cost) {
+        productsService.save(new Product(title, cost));
         return "redirect:/products/show_all_products";
     }
 
     @GetMapping(value = "/updateCost")
-    public String updateCost(@RequestParam String id, @RequestParam double cost) {
-        productsService.getProductById(id).setCost(cost);
+    public String updateCost(@RequestParam long id, @RequestParam String operation) {
+        productsService.updateCost(id, operation);
         return "redirect:/products/show_all_products";
     }
 }
