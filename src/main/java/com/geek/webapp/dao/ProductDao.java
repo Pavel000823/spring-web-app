@@ -19,7 +19,7 @@ public class ProductDao {
     }
 
     public List<Product> findAll() {
-        try (Session session = factory.getFactory().getCurrentSession()) {
+        try (Session session = factory.getSession()) {
             session.beginTransaction();
             List<Product> products = session.createQuery("from Product ", Product.class).getResultList();
             System.out.println(products);
@@ -29,7 +29,7 @@ public class ProductDao {
     }
 
     public Product findById(Long id) {
-        try (Session session = factory.getFactory().getCurrentSession()) {
+        try (Session session = factory.getSession()) {
             session.beginTransaction();
             Product product = session.get(Product.class, id);
             session.getTransaction().commit();
@@ -38,7 +38,7 @@ public class ProductDao {
     }
 
     public void saveOrUpdate(Product product) {
-        try (Session session = factory.getFactory().getCurrentSession()) {
+        try (Session session = factory.getSession()) {
             session.beginTransaction();
             Product entity = session.get(Product.class, product.getId());
             entity.setCost(product.getCost());
